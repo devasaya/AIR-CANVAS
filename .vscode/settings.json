@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "vector": "cpp",
+    "ios": "cpp",
+    "__bit_reference": "cpp",
+    "bitset": "cpp",
+    "__locale": "cpp"
+  }
+}
