@@ -4,6 +4,16 @@
     "ios": "cpp",
     "__bit_reference": "cpp",
     "bitset": "cpp",
-    "__locale": "cpp"
+    "__locale": "cpp",
+    "__hash_table": "cpp",
+    "__node_handle": "cpp",
+    "__split_buffer": "cpp",
+    "__tree": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp"
   }
 }
