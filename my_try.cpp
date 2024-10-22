@@ -117,7 +117,7 @@ int main() {
         imshow("Frame", frame);
         imshow("Canvas", canvas);
 
-        if (waitKey(1) && 0xFF == 'q') {
+        if (waitKey(1) == 'q') {
             break;
         }
     }
