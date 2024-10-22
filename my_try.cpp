@@ -48,7 +48,7 @@ int main() {
 
         cvtColor(frame, hsv, COLOR_BGR2HSV);
         inRange(hsv, lowerRed1, upperRed1, mask1);
-        inRange(hsv, lowerRed2, upperRed2, mask1);
+        inRange(hsv, lowerRed2, upperRed2, mask2);
         bitwise_or(mask1, mask2, mask);
         dilate(mask, mask, kernel);
 
