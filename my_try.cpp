@@ -41,13 +41,48 @@ int main() {
 
         flip(frame, frame, 1);
 
+        Mat hsv, mask, mask1, mask2;
+
         cvtColor(frame, hsv, COLOR_BGR2HSV);
         inRange(hsv, lowerRed1, upperRed1, mask1);
         inRange(hsv, lowerRed2, upperRed2, mask1);
         bitwise_or(mask1, mask2, mask);
         dilate(mask, mask, kernel);
 
-        
+        imshow("Mask: ",mask);
+
+        vector<vector<Point>> contours;
+        findContours(mask, contours, RETR_TREE, CHAIN_APPROX_SIMPLE);
+
+        if(!contours.empty()) {
+            // largest contour
+            vector<Point> largestContour = *max_element(
+                contours.begin(), contours.end(),
+                [](const vector<Point> &a, const vector<Point> &b) {
+                    return contourArea(a) < contourArea(b);
+                }
+            );
+
+            // center of the contour
+            Moments M = moments(largestContour);
+            int cX = int(M.m10 / M.m00);
+            int cY = int(M.m01 / M.m00);
+
+            circle(frame, Point(cX, cY), 10, Scalar(0, 0, 255), 2);
+
+            if (cY < 65 && (20 < cX && cX < 120)) {
+                Mat canvas = Mat::zeros(height, width, CV_8UC3);
+            } else if (cY < 65) {
+                if (140 < cX && cX < 220) color = colors[0];
+                else if (240 < cX && cX < 320) color = colors[1];
+                else if (340 < cX && cX < 420) color = colors[2];
+                else if (440 < cX && cX < 520) color = colors[3];
+                else if (540 < cX && cX < 620) color = colors[4];
+            }
+            Point prev_center = ;
+            if ()
+        }
+
     }
 
 
